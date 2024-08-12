@@ -31,7 +31,6 @@ export default function FormPost({ dataPost }: FormProps) {
   // console.log(errors);
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const result = await updatePost(data, convertData.id);
-    console.log(result);
     toast.success("Edit post success!!");
     navigate("/posts");
   };
