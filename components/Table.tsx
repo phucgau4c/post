@@ -1,6 +1,7 @@
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import Button from "./Button";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 type PropsPost = {
   posts: [{ id: Number; title: string; content: string }];
@@ -8,16 +9,18 @@ type PropsPost = {
 };
 
 export default function Table({ posts, role }: PropsPost) {
+  const t = useTranslations("Post");
+
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full border text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
         <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" className="px-6 py-3">
-              Title
+              {t("title")}
             </th>
             <th scope="col" className="px-6 py-3">
-              tools
+              {t("tools")}
             </th>
           </tr>
         </thead>

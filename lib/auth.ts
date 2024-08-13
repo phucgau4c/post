@@ -67,9 +67,6 @@ export const authConfig = {
       return token;
     },
   },
-  pages: {
-    signIn: "/auth/login",
-  },
   secret: env.NEXTAUTH_SECRET,
 };
 

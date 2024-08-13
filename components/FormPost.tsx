@@ -2,16 +2,12 @@
 import { navigate, updatePost } from "@/lib/action";
 import { FormPostSchema } from "@/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { z } from "zod";
 
 type Inputs = z.infer<typeof FormPostSchema>;
-// type Data = {
-//   id: number;
-//   title: string;
-//   content: string;
-// };
 
 type FormProps = {
   dataPost: string;
@@ -35,6 +31,8 @@ export default function FormPost({ dataPost }: FormProps) {
     navigate("/posts");
   };
 
+  const t = useTranslations("CreatePost");
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-sm">
@@ -43,7 +41,7 @@ export default function FormPost({ dataPost }: FormProps) {
             htmlFor="Title"
             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
           >
-            Post Title
+            {t("title")}
           </label>
           <input
             {...register("title")}
@@ -51,7 +49,6 @@ export default function FormPost({ dataPost }: FormProps) {
             type="Title"
             id="Title"
             className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-            placeholder="some title"
           />
           {errors.title?.message && (
             <p className="text-sm text-red-400">{errors.title.message}</p>
@@ -62,7 +59,7 @@ export default function FormPost({ dataPost }: FormProps) {
           htmlFor="content"
           className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
         >
-          Your content
+          {t("content")}
         </label>
         <textarea
           defaultValue={convertData.content}
@@ -80,7 +77,7 @@ export default function FormPost({ dataPost }: FormProps) {
           type="submit"
           className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          Edit
+          {t("btnEdit")}
         </button>
       </form>
     </div>

@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useTranslations } from "use-intl";
 import { z } from "zod";
 
 type Inputs = z.infer<typeof FormLogSchema>;
@@ -22,10 +23,12 @@ export default function FormLog() {
       email: data.email,
       password: data.password,
       redirect: true,
-      callbackUrl: "http://localhost:3000",
+      callbackUrl: "http://localhost:3000/posts",
     });
     toast.success("Login successful");
   };
+
+  const t = useTranslations("LoginPage");
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
@@ -33,7 +36,7 @@ export default function FormLog() {
         <div>
           <div className="w-full space-y-8 rounded-lg bg-white p-6 shadow-xl sm:p-8 lg:max-w-xl dark:bg-gray-800">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Sign in
+              {t("name")}
             </h2>
             <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
               <div>
@@ -41,7 +44,7 @@ export default function FormLog() {
                   htmlFor="email"
                   className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                 >
-                  Your email
+                  {t("email")}
                 </label>
                 <input
                   {...register("email")}
@@ -60,7 +63,7 @@ export default function FormLog() {
                   htmlFor="password"
                   className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                 >
-                  Your password
+                  {t("password")}
                 </label>
                 <input
                   {...register("password")}
@@ -81,7 +84,7 @@ export default function FormLog() {
                 type="submit"
                 className="w-full rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 sm:w-auto dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                Login to your account
+                {t("btnLogin")}
               </button>
             </form>
           </div>

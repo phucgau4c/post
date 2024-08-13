@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Toaster } from "react-hot-toast";
+
 import Header from "@/components/Header";
+import "./globals.css";
+
+type Props = {
+  children: React.ReactNode;
+  params: { locale: string };
+};
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,15 +20,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  params: { locale },
+}: Readonly<Props>) {
+  const messages = useMessages();
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={inter.className}>
-        <Toaster />
-        <Header />
-        <main>{children}</main>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Toaster />
+          <Header />
+          <main>{children}</main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

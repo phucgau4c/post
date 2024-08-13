@@ -2,6 +2,7 @@
 import { createPost, navigate } from "@/lib/action";
 import { FormPostSchema } from "@/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { z } from "zod";
@@ -28,6 +29,8 @@ export default function Page() {
     navigate("/posts");
   };
 
+  const t = useTranslations("CreatePost");
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-sm">
@@ -36,14 +39,14 @@ export default function Page() {
             htmlFor="Title"
             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
           >
-            Post Title
+            {t("title")}
           </label>
           <input
             {...register("title")}
             type="Title"
             id="Title"
             className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-            placeholder="some title"
+            placeholder={t("placeholderTitle")}
           />
           {errors.title?.message && (
             <p className="text-sm text-red-400">{errors.title.message}</p>
@@ -54,13 +57,13 @@ export default function Page() {
           htmlFor="content"
           className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
         >
-          Your content
+          {t("content")}
         </label>
         <textarea
           id="content"
           rows={4}
           className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-          placeholder="Write your thoughts here..."
+          placeholder={t("placeholderContent")}
           {...register("content")}
         ></textarea>
         {errors.content?.message && (
@@ -71,7 +74,7 @@ export default function Page() {
           type="submit"
           className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          Add Post
+          {t("btnAdd")}
         </button>
       </form>
     </div>

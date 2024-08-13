@@ -1,0 +1,32 @@
+{
+  "HomePage": {
+    "title": "xin chào"
+  },
+  "LocaleSwitcher": {
+    "switchLocale": "Thay đổi sang {locale, select, vi {Vietnam} en {English} other {Unknown}}"
+  },
+  "LoginPage": {
+    "name": "Đăng nhập",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "btnLogin": "Đăng nhập"
+  },
+  "Header": {
+    "name": "Trang Blog",
+    "btnLogin": "Đăng nhập",
+    "btnLogout": "Đăng xuất"
+  },
+  "Post": {
+    "createPost": "Tạo bài viết",
+    "title": "Tiêu đề",
+    "tools": "Công cụ"
+  },
+  "CreatePost": {
+    "title": "Tiêu đề bài viết",
+    "content": "Nội dung",
+    "btnAdd": "Thêm bài viết",
+    "placeholderTitle": "Tiêu đề...",
+    "placeholderContent": "Viết suy nghĩ của bạn ở đây...",
+    "btnEdit": "Thay đổi"
+  }
+}

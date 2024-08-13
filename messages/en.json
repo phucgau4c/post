@@ -1,0 +1,36 @@
+{
+  "Index": {
+    "title": "Home page",
+    "loggedIn": "user",
+    "secret": "secret",
+    "logout": "logout",
+    "login": "login"
+  },
+  "LocaleSwitcher": {
+    "switchLocale": "Switch to {locale, select, vi {Vietnam} en {English} other {Unknown}}"
+  },
+  "LoginPage": {
+    "name": "Sign in",
+    "email": "Email",
+    "password": "Password",
+    "btnLogin": "Login"
+  },
+  "Header": {
+    "name": "Blog page",
+    "btnLogin": "Login",
+    "btnLogout": "Logout"
+  },
+  "Post": {
+    "createPost": "Create post",
+    "title": "Title",
+    "tools": "Tools"
+  },
+  "CreatePost": {
+    "title": "Post Title",
+    "content": "Content",
+    "btnAdd": "Add Post",
+    "placeholderTitle": "Some title",
+    "placeholderContent": "Write your thoughts here...",
+    "btnEdit": "Edit"
+  }
+}
