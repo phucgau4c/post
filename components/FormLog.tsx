@@ -87,6 +87,7 @@ export default function FormLog() {
                 {t("btnLogin")}
               </button>
             </form>
+            <button onClick={() => signIn("google")}>google</button>
           </div>
         </div>
       </div>

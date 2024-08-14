@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { compare } from "bcrypt";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import Google from "next-auth/providers/google";
 import { env } from "process";
 
 type Credentials = {
@@ -42,6 +43,10 @@ export const authConfig = {
           role: user.role,
         };
       },
+    }),
+    Google({
+      clientId: process.env.AUTH_GOOGLE_ID,
+      clientSecret: process.env.AUTH_GOOGLE_SECRET,
     }),
   ],
   callbacks: {

@@ -7,6 +7,7 @@ import { navigate } from "@/lib/action";
 export default async function SignIn() {
   const session: any = await getServerSession(authConfig);
   const id = await session?.user?.id;
+  console.log(session);
 
   if (id) await navigate("/posts");
 
